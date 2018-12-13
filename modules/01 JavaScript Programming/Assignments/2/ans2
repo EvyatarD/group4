@@ -1,0 +1,8 @@
+var flag = true;
+var num = 23;
+var str = "evyatar";
+var car = {type:"Fiat"};
+console.log(typeof(flag));
+console.log(typeof(num)); 
+console.log(typeof(str)); 
+console.log(typeof(car));
