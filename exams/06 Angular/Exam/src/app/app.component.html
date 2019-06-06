@@ -1,0 +1,25 @@
+<form id="searchForm" (submit)="searchBook($event, query)">
+  <input type="text" placeholder="Enter Book name..." minlength="3" #query required />
+  <button type="submit">Search</button>
+</form>
+<br>
+<div id="book" *ngFor="let book of bookService.books; index as i" (click)="showI(i)">
+  <h3> {{book.title}}</h3>
+  <b> Authors:</b>
+  <ul>
+    <li *ngFor="let authorBook of book.authors">
+      {{authorBook}}
+    </li>
+  </ul>
+  <a href={{book.url}} target="_blank">Link to book page</a>
+ 
+  <div id="moreInfo" *ngIf="showInfo==i">
+      <br>
+    <b>Publisher:</b> {{book.publisher}} <br>
+    <b> Published date:</b> {{book.publishedDate}} <br>
+    <b> Description:</b> {{book.description}} <br>
+     <br>
+    <img src={{book.thumbnail}}>
+  </div>
+</div>
+<input type="button" value="Lode More" [disabled]="bookService.hasMore" [hidden]="!bookService.isSearched" (click)="loadMovies()">
