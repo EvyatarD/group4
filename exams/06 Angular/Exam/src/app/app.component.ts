@@ -21,21 +21,16 @@ export class AppComponent {
   }
 
   searchBook(e: Event, input: HTMLInputElement) {
-    // this.loggerService.log('myQuery ' +  this.myQuery.nativeElement.value);
-    // this.loggerService.log('Searching movie: event ' + JSON.stringify(e) + ' input' + JSON.stringify(input));
-    // this.initDefaultValues();
+  
     e.preventDefault();
     this.page = -1;
     this.search = input.value;
     this.loadMovies();
-    // this.favoritesComponent.isMenuOpen = false;
+   
   }
 
   loadMovies() {
-    // const url = `${this.endpoint}&page=${this.page}&s=${this.search}`;
-    // this.loggerService.log(`fetching movies from url: ${url}`);
-    // fetch(url)
-    // .then( response => response.json() )
+  
     this.page += 1;
     console.log(this.page);
     this.bookService.loadBook(this.search, this.page);
